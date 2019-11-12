@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block custom_css %}
+ <link rel="stylesheet" type="text/css" href=" {% static 'home.css' %} ">
+{% endblock custom_css %}
+<link rel="stylesheet" href=" {% static 'bootstrap.min.css' %} ">
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col ion-text-center">
+         <div class="content" style="background-color: rgb(69, 51, 177);
+                                     text-align: center;
+                                          ">
+           <h1>||-- COVS -- ||</h1>
+           <h3> YOUR VOTE MATTERS</h3>
+           <hr>
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'polls:list' %}"> <button type="button" class="btn btn-dark btn-lg"> Get started!</button></a>
+              {% else %}
+              <a href="{% url 'accounts:login' %}"> <button type="button" class="btn btn-dark btn-lg"> Go to login</button></a>
+              {% endif %}       
+          
+         </div>
+        </div>
+    </div>
+  
+</div>
+
+{% endblock content %}
